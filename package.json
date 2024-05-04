@@ -1,0 +1,28 @@
+{
+  "name": "gritter-auto-newtab",
+  "version": "1.0.0",
+  "description": "A web component to extend HTMLAnchorElement to open a new tab if it's domain does not match the current domain.",
+  "main": "gritter-auto-newtab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoffritter/gritter-auto-newtab.git"
+  },
+  "keywords": [
+    "HTMLAnchorElement",
+    "WebComponent"
+  ],
+  "author": "Geoff Ritter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geoffritter/gritter-auto-newtab/issues"
+  },
+  "homepage": "https://github.com/geoffritter/gritter-auto-newtab#readme",
+  "scripts": {
+    "build": "npx rollup -c ./rollup.config.mjs",
+    "docs": "npx jsdoc -d ./docs/ -R ./README.md -P ./package.json -r ./src/",
+    "start": "npx http-server"
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gritter-auto-newtab</title>
+  <!-- You may need a poly fill for customElements if you want to use custom elements. -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <!-- Load the gritter-auto-newtab element -->
+  <script type="importmap">
+    {
+      "imports": {
+        "gritter-auto-newtab": "./src/gritter-auto-newtab.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import {GRitterAutoNewTabElement, GRitterAutoNewTabReplace} from 'gritter-auto-newtab';
+    window.GRitterAutoNewTabElement = GRitterAutoNewTabElement;
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('loaded');
+      // Optional upgrade of anchor elements that don't already have is="gritter-auto-newtab"
+      let anchorNodeList = document.querySelectorAll('a');
+      GRitterAutoNewTabReplace(anchorNodeList);
+    });
+  </script>
+  <script type="module" src="./src/gritter-auto-newtab.js" async></script>
+</head>
+<body>
+
+<h1>GRitter Auto NewTab</h1>
+<p>A web component to extend HTMLAnchorElement to open a new tab if it's domain does not match the current domain.</p>
+
+<p>This link already has the is="gritter-auto-newtab": <a is="gritter-auto-newtab" href="https://geoffritter.com">https://geoffritter.com</a></p>
+<p>This link was upgraded later: <a href="http://example.com">http://example.com</a></p>
+
+<p>This link is the same domain it is upgraded but will not open a new tab despite being tagged is="gritter-auto-newtab": <a is="gritter-auto-newtab" href="#home">#home</a>
+<p>This link is the same domain and not upgraded despite being globbed to the init function: <a href="#other">#other</a>
+
+</body>
+</html>
